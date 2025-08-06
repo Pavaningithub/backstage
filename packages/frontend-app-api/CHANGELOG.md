@@ -1,5 +1,13 @@
 # @backstage/frontend-app-api
 
+## 0.12.0-next.3
+
+### Patch Changes
+
+- f3f9d57: Renaming the `getNodesByRoutePath` parameter from `sourcePath` to `routePath`
+- Updated dependencies
+  - @backstage/frontend-plugin-api@0.11.0-next.2
+
 ## 0.12.0-next.2
 
 ### Minor Changes

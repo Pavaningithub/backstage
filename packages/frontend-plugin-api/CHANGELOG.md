@@ -1,5 +1,13 @@
 # @backstage/frontend-plugin-api
 
+## 0.11.0-next.2
+
+### Patch Changes
+
+- 9831f4e: Adjusted the dialog API types to have more sensible defaults
+- Updated dependencies
+  - @backstage/core-components@0.17.5-next.2
+
 ## 0.11.0-next.1
 
 ### Minor Changes
