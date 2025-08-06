@@ -56,7 +56,19 @@ function makeSpec<TConfig, TConfigInput>(
     attachTo: extension.attachTo,
     disabled: extension.disabled,
     extension: extension as Extension<unknown, unknown>,
-    plugin: undefined,
+    plugin: {
+      $$type: '@backstage/FrontendPlugin' as const,
+      id: '',
+      routes: {},
+      externalRoutes: {},
+      info: async () => ({}),
+      getExtension: () => {
+        throw new Error('Not implemented');
+      },
+      withOverrides: () => {
+        throw new Error('Not implemented');
+      },
+    },
     ...spec,
   };
 }

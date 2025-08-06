@@ -102,12 +102,25 @@ export function resolveAppNodeSpecs(options: {
       };
     }),
     ...builtinExtensions.map(extension => {
+      const internalPlugin = {
+        $$type: '@backstage/FrontendPlugin' as const,
+        id: 'internal',
+        routes: {},
+        externalRoutes: {},
+        info: async () => ({}),
+        getExtension: () => {
+          throw new Error('The internal extension cannot be gotten');
+        },
+        withOverrides: () => {
+          throw new Error('The internal plugin cannot be overridden');
+        },
+      };
       const internalExtension = toInternalExtension(extension);
       return {
         extension: internalExtension,
         params: {
-          source: undefined,
-          plugin: undefined,
+          source: internalPlugin,
+          plugin: internalPlugin,
           attachTo: internalExtension.attachTo,
           disabled: internalExtension.disabled,
           config: undefined as unknown,
